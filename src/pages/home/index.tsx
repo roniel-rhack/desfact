@@ -4,7 +4,7 @@ import React from "react";
 
 const Home = {
     path: '/',
-    name: 'Inicio',
+    name: 'Home',
     component: HomeComponent,
     icon: (<HomeIcon/>),
 };

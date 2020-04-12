@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Page from './page';
 
 const HomeComponent = (props:any) => {
     return(
-        <Page/>
+        <Fragment>
+            <Page/>
+        </Fragment>
     );
 };
 

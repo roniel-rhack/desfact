@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04f13c86-ab11-4d6a-8b6a-9abe73690f32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/addRow/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/addRow/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/actions/saveRecord.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/newRecord.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/start.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,13 +26,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1aK7KkTg5L0bgEkUruWhpinapst" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -71,45 +87,75 @@
       <option name="presentableId" value="Default" />
       <updated>1586472369544</updated>
       <workItem from="1586472370983" duration="1096000" />
-      <workItem from="1586479215089" duration="5408000" />
+      <workItem from="1586479215089" duration="8330000" />
+      <workItem from="1586635995910" duration="14531000" />
     </task>
+    <task id="LOCAL-00001" summary="Modifying README.md">
+      <created>1586488029812</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586488029812</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modifying README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifying README.md" />
   </component>
   <component name="WindowStateProjectService">
     <state x="399" y="114" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1586487266544">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="399" y="114" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1586487266544" />
-    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586479666476">
+    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586492456635">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1586479666476" />
-    <state width="1659" height="276" key="GridCell.Tab.0.bottom" timestamp="1586486775976">
+    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1586492456635" />
+    <state x="421" y="40" key="CommitChangelistDialog2" timestamp="1586488029522">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="276" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1586486775976" />
-    <state width="1659" height="276" key="GridCell.Tab.0.center" timestamp="1586486775974">
+    <state x="421" y="40" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1586488029522" />
+    <state width="1659" height="214" key="GridCell.Tab.0.bottom" timestamp="1586662563605">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="276" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1586486775974" />
-    <state width="1659" height="276" key="GridCell.Tab.0.left" timestamp="1586486775973">
+    <state width="1659" height="276" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1586493075687" />
+    <state width="1659" height="214" key="GridCell.Tab.0.bottom/1680.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1586662563605" />
+    <state width="1659" height="214" key="GridCell.Tab.0.center" timestamp="1586662563603">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="276" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1586486775973" />
-    <state width="1659" height="276" key="GridCell.Tab.0.right" timestamp="1586486775975">
+    <state width="1659" height="276" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1586493075686" />
+    <state width="1659" height="214" key="GridCell.Tab.0.center/1680.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1586662563603" />
+    <state width="1659" height="214" key="GridCell.Tab.0.left" timestamp="1586662563602">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1659" height="276" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1586486775975" />
+    <state width="1659" height="276" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1586493075685" />
+    <state width="1659" height="214" key="GridCell.Tab.0.left/1680.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1586662563602" />
+    <state width="1659" height="214" key="GridCell.Tab.0.right" timestamp="1586662563604">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1659" height="276" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1586493075686" />
+    <state width="1659" height="214" key="GridCell.Tab.0.right/1680.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1586662563604" />
     <state x="341" y="164" key="SettingsEditor" timestamp="1586481619765">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1586481619765" />
-    <state x="622" y="444" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586487970546">
+    <state x="440" y="261" key="Vcs.Push.Dialog.v2" timestamp="1586488039269">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="261" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1586488039269" />
+    <state x="622" y="444" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586662558430">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="622" y="444" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1586487970546" />
+    <state x="622" y="444" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1680.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1586662558430" />
+    <state width="600" height="440" key="javadoc.popup" timestamp="1586662394657">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="600" height="440" key="javadoc.popup/1680.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1586662394657" />
   </component>
 </project>

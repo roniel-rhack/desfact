@@ -1,6 +1,7 @@
 const electron = require('electron');
 const app = electron.app;
 const path = require('path');
+const os = require('os');
 const isDev = require('electron-is-dev');
 const BrowserWindow = electron.BrowserWindow;
 require('electron-reload');
@@ -13,7 +14,10 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
         },
-    })
+    });
+    BrowserWindow.addDevToolsExtension(
+        path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Profile 1/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.6.0_0')
+    );
 
     mainWindow.loadURL(
         isDev
