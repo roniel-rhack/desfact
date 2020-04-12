@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Page from './page';
 import {connect} from "react-redux";
 import saveRecord from "../../redux/actions/saveRecord";
