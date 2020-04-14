@@ -13,10 +13,12 @@ function createWindow() {
         height: 600,
         webPreferences: {
             nodeIntegration: true,
+            webSecurity: false
         },
+
     });
     BrowserWindow.addDevToolsExtension(
-        path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Profile 1/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.6.0_0')
+        path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Profile 1/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.17.0_0')
     );
 
     mainWindow.loadURL(

@@ -1,8 +1,5 @@
 const defaultState: Object[] = [
-    {
-        account: "df",
-        amount: 78
-    }
+
 ];
 
 interface DestProps {
@@ -13,8 +10,11 @@ interface DestProps {
 const reducer = (state = defaultState, {type, payload}: DestProps) => {
     switch (type) {
         case "SAVE_RECORD":
-            state.push(payload);
-            return state;
+            console.log(state);
+            return [
+                ...state,
+                payload
+            ];
         default:
             return state;
     }

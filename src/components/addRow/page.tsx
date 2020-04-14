@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AccountBalanceOutlinedIcon from '@material-ui/icons/AccountBalanceOutlined';
 import {Button, FormControl, Input, InputAdornment, InputLabel} from "@material-ui/core";
 import SaveIcon from '@material-ui/icons/Save';
+import NumberFormat from 'react-number-format';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -30,9 +31,38 @@ interface State {
     valid?: boolean
 }
 
+interface NumberFormatCustomProps {
+    inputRef: (instance: NumberFormat | null) => void;
+    onChange: (event: { target: { name: string; value: string } }) => void;
+    name: string;
+}
+
+const NumberFormatCustom = (props: NumberFormatCustomProps) => {
+    const { inputRef, onChange, ...other } = props;
+
+    return (
+        <NumberFormat
+            {...other}
+            getInputRef={inputRef}
+            onValueChange={(values) => {
+                onChange({
+                    target: {
+                        name: props.name,
+                        value: values.value,
+                    },
+                });
+            }}
+            thousandSeparator
+            isNumericString
+        />
+    );
+};
+
 const Page = (props:any) => {
     const classes  = useStyles();
     const {account, amount, handleChange, saveNewRecord} = props;
+    const textInputRef = React.createRef();
+
 
     return(
         <Fragment>
@@ -49,6 +79,7 @@ const Page = (props:any) => {
                     }
                     value={account}
                     onChange={handleChange('account')}
+                    ref={textInputRef}
                 />
             </FormControl>
                 <FormControl className={classes.margin}>
@@ -63,9 +94,14 @@ const Page = (props:any) => {
                         }
                         value={amount}
                         onChange={handleChange('amount')}
+                        inputComponent={NumberFormatCustom as any}
                     />
                 </FormControl>
-                <Button variant="outlined" color="primary" startIcon={<SaveIcon />} onClick={saveNewRecord}>
+                <Button variant="outlined" color="primary" startIcon={<SaveIcon />} onClick={()=>{
+                    // @ts-ignore
+                    textInputRef.current.lastElementChild.focus();
+                    saveNewRecord();
+                }}>
                     Adicionar
                 </Button>
             </form>

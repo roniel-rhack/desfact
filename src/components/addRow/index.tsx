@@ -25,13 +25,21 @@ const AddRow = (props:any) => {
 
     const saveNewRecord = () => {
         props.saveRecord({account:values.account, amount:values.amount});
+        setValues({
+            amount: 0,
+            account:'',
+            valid: true
+        });
+
     };
 
 
     const handleChange = (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
         setValues({ ...values, [prop]: event.target.value });
     };
-    console.log(props.newRecord);
+
+
+
     return(
 
         <Page
@@ -39,6 +47,7 @@ const AddRow = (props:any) => {
             amount={values.amount}
             handleChange={handleChange}
             saveNewRecord={saveNewRecord}
+
         />
     );
 };
