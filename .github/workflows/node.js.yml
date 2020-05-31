@@ -5,13 +5,12 @@ name: My Workflow
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -19,17 +18,17 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install dependencies for frontend 
-      run: yarn --frozen-lockfile
-    - name: Install dependencies for api
-      run: cd src/api && yarn --frozen-lockfile
-    - name: React build
-      run: yarn react-build
-    - name: Electron build
-      run: yarn electron-build
-    - run: yarn test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies for frontend
+        run: yarn
+      - name: Install dependencies for api
+        run: cd src/api && yarn
+      - name: React build
+        run: yarn react-build
+      - name: Electron build
+        run: yarn electron-build
+      - run: yarn test
