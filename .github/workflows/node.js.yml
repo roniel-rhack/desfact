@@ -31,3 +31,8 @@ jobs:
         run: yarn react-build
       - name: Electron build
         run: yarn electron-build
+      - name: Upload .deb
+        uses: actions/upload-artifact@v1
+        with:
+          name: desfact_deb
+          path: ../build-app/desfact_0.1.0_i386.deb
