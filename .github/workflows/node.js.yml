@@ -34,5 +34,5 @@ jobs:
       - name: Upload .deb
         uses: actions/upload-artifact@v1
         with:
-          name: desfact_deb
+          name: desfact_0.1.0_i386.deb
           path: ../build-app/desfact_0.1.0_i386.deb
