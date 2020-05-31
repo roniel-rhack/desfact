@@ -31,4 +31,3 @@ jobs:
         run: yarn react-build
       - name: Electron build
         run: yarn electron-build
-      - run: yarn test
