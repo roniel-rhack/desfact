@@ -24,6 +24,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run react-build --if-present
+    - run: yarn 
+    - run: cd src/api && yarn 
+    - run: yarn react-build
+    - run: yarn electron-build
     - run: npm test
