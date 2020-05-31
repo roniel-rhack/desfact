@@ -10,7 +10,8 @@
         "dev": "nodemon --watch . ./main.js"
     },
     "dependencies": {
-        "body-parser": "^1.19.0"
+        "body-parser": "^1.19.0",
+        "platform-folders": "^0.5.1"
     },
     "devDependencies": {
         "nodemon": "^2.0.3"

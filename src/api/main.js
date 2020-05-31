@@ -1,30 +1,60 @@
 var fs = require('fs');
+var path = require('path');
+
+var now = new Date();
+var day = ("0" + now.getDate()).slice(-2);
+var month = ("0" + (now.getMonth() + 1)).slice(-2);
+var year = now.getFullYear();
+var today = day + "-" + month + "-" + year;
+console.log(today);
+
+var ruta =
+    path.join(process.env["HOME"], "Desktop");
+
+if (fs.existsSync(ruta)){
+    ruta += "/" +  "desglose_" + today + ".dbf";
+}else{
+    ruta = path.join(process.env["HOME"], "Escritorio") + "/" +  "desglose_" + today + ".dbf";
+}
+
 
 function saveDBF(rows) {
     "use strict";
     exports.__esModule = true;
     var dbffile_1 = require("dbffile");
 
-    dbffile_1.DBFFile.create('my.dbf', [
-            { name: 'account', type: 'C', size: 255 },
-            { name: 'amount', type: 'B', size: 8 },
+    dbffile_1.DBFFile.create(ruta, [
+        { name: 'imp_cargo', type: 'B', size: 8, decimalPlaces: 2 },
+        { name: 'cuenta', type: 'C', size: 14 },
+        { name: 'contab_ban', type: 'L', size:1},
+        { name: 'pendiente', type: 'B', size: 8, decimalPlaces: 2},
         ])
         .then(function(dbf) {
-            console.log('DBF file created.');
+            console.log(`DBF file ${ruta} created.`);
             dbf.appendRecords(rows);
         })
         .then(function(dbf) {
             console.log(rows.length + ' rows added.');
-            return dbffile_1.DBFFile.open('my.dbf');
         })
-        .then(function(dbf) {
-            console.log('DBF file contains ' + dbf.recordCount + ' rows.');
-            console.log('Field names: ' + dbf.fields.map(function(f) { return f.name; }).join(', '));
-            return dbf.readRecords(100);
-        })["catch"](function(err) {
+        ["catch"](function(err) {
             console.log('An error occurred: ' + err);
         });
 }
+
+async function readDBF(ruta) {
+    var dbffile_1 = require("dbffile");
+    let dbf = await dbffile_1.DBFFile.open(ruta);
+    console.log(`File ${ruta} opened.`);
+    console.log(`DBF contains ${dbf.recordCount} records`);
+    console.log(`Fields names: ${dbf.fields.map((f) => f.name).join(", ")}`);
+    let records = await dbf.readRecords(100);
+    var jsonData = JSON.stringify(records);
+    // console.log("json:", jsonData);
+    // for (let record of records) console.log(records);
+    return jsonData;
+}
+
+
 
 // import express (after npm install express)
 const express = require('express');
@@ -37,33 +67,36 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // server configuration
-const PORT = 8080;
+const PORT = 3132;
 
 // create a route for the app
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('DesFact Api');
 });
 
-// 1) Add a route that answers to all request types
+app.post('/readDBF', function (req, res) {
+    var ruta = req.body.ruta;
+    readDBF(ruta).then(value => {
+        res.send(value)
+        res.end();
+    });
+});
+
+// 1) Crea el DBF segun los datos que envia el visual
 app.post('/createDBF', function(req, res) {
-    console.log("Datos> ");
-    console.log(req.body);
     var jsondata = req.body;
-    fs.exists('my.dbf', function(exists) {
+    fs.exists(ruta, function(exists) {
         if (exists) {
             console.log('File exists. Deleting now ...');
-            fs.unlink('my.dbf', function(err) {
+            fs.unlink(ruta, function(err) {
                 if (err) return console.log(err);
-                console.log('file deleted successfully');
+                console.log(`File ${ruta} deleted successfully`);
                 saveDBF(jsondata);
             });
         } else {
-            console.log('File not found, so not deleting.');
             saveDBF(jsondata);
         }
     });
-
-
     res.send({ status: "Ok" });
     res.end();
 });

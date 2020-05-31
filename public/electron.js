@@ -7,25 +7,26 @@ const BrowserWindow = electron.BrowserWindow;
 require('electron-reload');
 let mainWindow;
 
-require('./src/api');
+require('../src/api');
+
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        minWidth: 700,
         webPreferences: {
             nodeIntegration: true,
             webSecurity: false
-        },
-
+        }
     });
     /*BrowserWindow.addDevToolsExtension(
         path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Profile 1/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.17.0_0')
     );*/
 
     mainWindow.loadURL(
-        false
+        isDev
             ? 'http://localhost:3000'
-            : `file://${path.join(__dirname, './build/index.html')}`,
+            : `file://${path.join(__dirname, '../build/index.html')}`,
     )
 
     mainWindow.on('closed', () => {
