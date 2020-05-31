@@ -14,7 +14,8 @@
 # production
 /build
 /dist
-
+.idea/
+/.idea/
 # misc
 .DS_Store
 .env.local
