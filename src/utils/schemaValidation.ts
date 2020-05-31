@@ -16,7 +16,7 @@ const validationSchema = yup.object({
         imp_cargo: yup.number()
             .required("El importe es obligatorio.")
             .min(1, "El importe a desglosar debe ser mayor que $ 1.00.")
-            .test('rounds', "El importe no puede tener más de dos lugares después del punto.", value => {
+            .test('rounds', "El importe no puede tener más de dos lugares decimales.", value => {
                 // eslint-disable-next-line eqeqeq
                 return value == value?.toFixed(2);
             }),

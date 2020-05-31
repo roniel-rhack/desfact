@@ -48,7 +48,7 @@ const Home: React.FC = (props: any) => {
                                     setSubmitting(false)
                                 })
                         }}>
-                    {({values, setFieldValue, handleSubmit, isSubmitting, errors}) => (
+                    {({values, setFieldValue, handleSubmit, isSubmitting, errors, submitCount}) => (
                         <Form>
                             <FieldArray name="desgloses">
                                 {arrayHelpers => (
@@ -56,14 +56,14 @@ const Home: React.FC = (props: any) => {
                                         {values.desgloses.map((desg, index) => (
                                             <DesgloseField index={index} arrayHelpers={arrayHelpers}
                                                            error={errors.desgloses ? errors.desgloses[index] : undefined}
-                                                           key={index}/>
+                                                           key={index} submitCount={submitCount}/>
                                         ))}
                                         <OptionsPanel isSubmitting={isSubmitting} arrayHelpers={arrayHelpers}
                                                       handleSubmit={handleSubmit} fileName={values.fileName}
                                                       setFieldValue={setFieldValue}/>
                                         <StatusBar desgloses={values.desgloses} fileName={values.fileName}/>
                                         {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
-                                        {/*<pre>{JSON.stringify(errors, null, 2)}</pre>*/}
+                                        {/*<pre>{JSON.stringify(submitCount, null, 2)}</pre>*/}
                                     </Fragment>
                                 )}
                             </FieldArray>
