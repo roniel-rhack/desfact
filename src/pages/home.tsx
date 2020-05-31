@@ -4,12 +4,12 @@ import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import desgloseDefaultValue from "../utils/desgloseDefault";
 import saveDbf from "../request/saveDbf";
-import {Field, FieldArray, Form, Formik} from "formik";
-import TextField from "@material-ui/core/TextField";
-import {Button} from "@material-ui/core";
+import {FieldArray, Form, Formik} from "formik";
 import StatusBar from "../components/StatusBar";
 import autoFileName from "../utils/autoFileName";
 import OptionsPanel from "../components/OptionsPanel";
+import DesgloseField from "../components/DesgloseField";
+import validationSchema from "../utils/schemaValidation";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,6 +31,7 @@ const Home: React.FC = (props: any) => {
         <Container>
             <Paper className={classes.paper}>
                 <Formik initialValues={{desgloses: [desgloseDefaultValue()], fileName: autoFileName()}}
+                        validationSchema={validationSchema}
                         onSubmit={(values, {setSubmitting}) => {
                             setSubmitting(true)
                             saveDbf(values.desgloses)
@@ -47,36 +48,22 @@ const Home: React.FC = (props: any) => {
                                     setSubmitting(false)
                                 })
                         }}>
-                    {({values, setFieldValue, handleSubmit, isSubmitting}) => (
+                    {({values, setFieldValue, handleSubmit, isSubmitting, errors}) => (
                         <Form>
                             <FieldArray name="desgloses">
                                 {arrayHelpers => (
                                     <Fragment>
                                         {values.desgloses.map((desg, index) => (
-                                            <div key={desg.key}
-                                                 style={{
-                                                     borderBottom: "solid 1px silver",
-                                                     padding: 5,
-                                                     borderRadius: 15
-                                                 }}>
-                                                <Field name={`desgloses.${index}.cuenta`} as={TextField}
-                                                       placeholder="Cuenta" size="small"
-                                                       style={{marginRight: 20}}/>
-                                                <Field type="number" step={0.1} name={`desgloses.${index}.imp_cargo`}
-                                                       as={TextField} size="small"
-                                                       placeholder="Importe" style={{marginRight: 40}}/>
-                                                <Button variant="outlined" size="small"
-                                                        onClick={() => arrayHelpers.remove(index)}
-                                                        style={{
-                                                            borderRadius: 50
-                                                        }}>Eliminar</Button>
-                                            </div>
+                                            <DesgloseField index={index} arrayHelpers={arrayHelpers}
+                                                           error={errors.desgloses ? errors.desgloses[index] : undefined}
+                                                           key={index}/>
                                         ))}
                                         <OptionsPanel isSubmitting={isSubmitting} arrayHelpers={arrayHelpers}
                                                       handleSubmit={handleSubmit} fileName={values.fileName}
                                                       setFieldValue={setFieldValue}/>
                                         <StatusBar desgloses={values.desgloses} fileName={values.fileName}/>
                                         {/*<pre>{JSON.stringify(values, null, 2)}</pre>*/}
+                                        {/*<pre>{JSON.stringify(errors, null, 2)}</pre>*/}
                                     </Fragment>
                                 )}
                             </FieldArray>
