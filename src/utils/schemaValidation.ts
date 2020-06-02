@@ -8,7 +8,7 @@ const validationSchema = yup.object({
     .max(100, "El nombre del archivo no puede tener más de 100 caracteres."),
   desgloses: yup.array().of(
     yup.object<desgloseInterface>({
-      cuenta: yup
+      CUENTA: yup
         .string()
         .length(14, "La cuenta debe tener una longitud de 14 digitos.")
         .required("La cuenta es obligatoria.")
@@ -37,7 +37,7 @@ const validationSchema = yup.object({
         .test("tip_contra", "El tip_contra debe ser 8.", (value) => {
           return value.slice(6, 7) === "8";
         }),
-      imp_cargo: yup
+      IMP_CARGO: yup
         .number()
         .required("El importe es obligatorio.")
         .min(1, "El importe a desglosar debe ser mayor que $ 1.00.")
@@ -49,8 +49,8 @@ const validationSchema = yup.object({
             return value == value?.toFixed(2);
           }
         ),
-      contab_ban: yup.boolean().required(),
-      pendiente: yup.number().required(),
+      CONTAB_BAN: yup.boolean().required(),
+      PENDIENTE: yup.number().required(),
     })
   ),
 });

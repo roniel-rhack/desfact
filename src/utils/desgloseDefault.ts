@@ -1,15 +1,15 @@
 export interface desgloseInterface {
-    imp_cargo: number;
-    cuenta: string;
-    contab_ban: boolean;
-    pendiente: number;
+    IMP_CARGO: number;
+    CUENTA: string;
+    CONTAB_BAN: boolean;
+    PENDIENTE: number;
 }
 
 var desgloseDefaultValue = (): desgloseInterface => (
     {
         ...{
-            cuenta: "", imp_cargo: 0,
-            contab_ban: false, pendiente: 0
+            CUENTA: "", IMP_CARGO: 0,
+            CONTAB_BAN: false, PENDIENTE: 0
         }
     }
 )

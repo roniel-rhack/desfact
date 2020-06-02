@@ -3,8 +3,8 @@ import {desgloseInterface} from "./desgloseDefault";
 const sumaImporte = (desgloses: desgloseInterface[]) => {
     let total = 0;
     desgloses.forEach(value => {
-        if (!!value.imp_cargo)
-            total += value.imp_cargo;
+        if (!!value.IMP_CARGO)
+            total += value.IMP_CARGO;
     })
     return total;
 }
